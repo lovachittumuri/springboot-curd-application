@@ -1,0 +1,36 @@
+name: my-docker-mysql
+services:
+  mysql:
+    image: mysql:9.7
+    container_name: mysql-9.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "mydb"
+      MYSQL_USER: "sample"
+      MYSQL_PASSWORD: "sample"
+      MYSQL_ROOT_PASSWORD: "root"
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-db:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 30s
+  springboot-curd-app:
+    build: .
+    image: curd-application:latest
+    restart: on-failure
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mydb
+      SPRING_DATASOURCE_USERNAME: sample
+      SPRING_DATASOURCE_PASSWORD: sample
+    ports:
+      - "9191:9191"
+volumes:
+  mysql-db:
