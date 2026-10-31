@@ -2,6 +2,9 @@ package com.demo.curd.service;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.demo.curd.model.Users;
@@ -28,18 +31,17 @@ public class UserService {
 	public void deleteUser(Long id) {
 		userRepository.delete(getDataById(id));
 	}
-	
+
 	public Users updateUser(Users users) {
 		return userRepository.save(users);
 	}
-	
+
 	public Users saveUsers(Users users) {
 		return userRepository.save(users);
 	}
-	
+
 	public List<Users> saveAllUsers(List<Users> users) {
 		return userRepository.saveAll(users);
 	}
-	
-	
+
 }
