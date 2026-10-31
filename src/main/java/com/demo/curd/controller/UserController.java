@@ -2,6 +2,7 @@ package com.demo.curd.controller;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -52,7 +53,7 @@ public class UserController {
 	public Users saveUsers(@RequestBody Users users) {
 		return UserService.saveUsers(users);
 	}
-	
+
 	@PostMapping("/saveAll")
 	public List<Users> saveUsers(@RequestBody List<Users> users) {
 		return UserService.saveAllUsers(users);
