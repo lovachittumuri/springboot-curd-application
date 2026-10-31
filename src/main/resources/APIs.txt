@@ -1,5 +1,6 @@
 
 
+
 ===================================================================
 
 			 APIS - For this Application
@@ -8,11 +9,11 @@
 
 
 
-GET - welcome - http://localhost:9191/
+GET - welcome - http://localhost:9191/curd/
 
-GET - userData -  http://localhost:9191/userData
+GET - userData -  http://localhost:9191/curd/userData
 
-PUT - updateUser - http://localhost:9191/updateUser
+PUT - updateUser - http://localhost:9191/curd/updateUser
 
 	 {
         "userId": 12,
@@ -20,11 +21,11 @@ PUT - updateUser - http://localhost:9191/updateUser
         "email": "lova.anand@gmail.com"
     }
 	
-DELETE - {id} - http://localhost:9191/12
+DELETE - {id} - http://localhost:9191/curd/12
 
-GET - FindById - http://localhost:9191/13
+GET - FindById - http://localhost:9191/curd/13
 
-POST - saveAll - http://localhost:9191/saveAll
+POST - saveAll - http://localhost:9191/curd/saveAll
 
 	[
     {
@@ -37,14 +38,11 @@ POST - saveAll - http://localhost:9191/saveAll
     }
 	]
 
-POST - save  - http://localhost:9191/save
+POST - save  - http://localhost:9191/curd/save
 
 	{
 		"userName": "Mom",
 		"email": "Mom@gmail.com"
 	}
-
-
-
 
 
