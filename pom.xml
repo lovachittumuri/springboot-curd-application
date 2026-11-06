@@ -129,6 +129,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<final-name>curd-application</final-name>
 	</build>
 
 </project>
