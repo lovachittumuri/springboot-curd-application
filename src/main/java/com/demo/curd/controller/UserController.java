@@ -20,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @AllArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "*") 
 public class UserController {
 
 	private UserService UserService;
