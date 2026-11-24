@@ -29,7 +29,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 echo 'Building Docker Image'
-
+				docker login
                 //bat 'docker build .'
             }
         }
