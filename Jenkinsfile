@@ -28,7 +28,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-				docker login
+				bat 'docker login'
                 echo 'Building Docker Image'
 				
                 //bat 'docker build .'
