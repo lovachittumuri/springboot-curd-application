@@ -1,0 +1,41 @@
+
+pipeline {
+    agent any
+
+    stages {
+
+	   stage('Git Checkout') {
+			steps {
+				git branch: 'main',
+					url: 'https://github.com/lovachittumuri/springboot-curd-application.git'
+			}
+		}
+
+        stage('Build Clean package') {
+            steps {
+                echo 'Building Spring Boot Application'
+
+                bat 'mvn clean package -DskipTests'
+            }
+        }
+
+        stage('Test Cases') {
+            steps {
+                echo 'Running Application Tests'
+
+                bat 'mvn test'
+            }
+        }
+
+    }
+
+    post {
+        success {
+            echo 'CI/CD Pipeline Completed Successfully!'
+        }
+
+        failure {
+            echo 'CI/CD Pipeline Failed Due to Maven . Please Check Jenkins Console Output.'
+        }
+    }
+}
